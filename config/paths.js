@@ -1,5 +1,5 @@
-'use strict';
-
+/* eslint-disable @typescript-eslint/no-shadow */
+/* eslint-disable import/no-dynamic-require */
 const path = require('path');
 const fs = require('fs');
 const getPublicUrlOrPath = require('react-dev-utils/getPublicUrlOrPath');
@@ -18,7 +18,7 @@ const resolveApp = relativePath => path.resolve(appDirectory, relativePath);
 const publicUrlOrPath = getPublicUrlOrPath(
   process.env.NODE_ENV === 'development',
   require(resolveApp('package.json')).homepage,
-  process.env.PUBLIC_URL
+  process.env.PUBLIC_URL,
 );
 
 const buildPath = process.env.BUILD_PATH || 'build';
@@ -35,13 +35,16 @@ const moduleFileExtensions = [
   'json',
   'web.jsx',
   'jsx',
+  'css',
+  'global.css',
+  'scss',
+  'global.scss',
 ];
 
 // Resolve file paths in the same order as webpack
 const resolveModule = (resolveFn, filePath) => {
   const extension = moduleFileExtensions.find(extension =>
-    fs.existsSync(resolveFn(`${filePath}.${extension}`))
-  );
+    fs.existsSync(resolveFn(`${filePath}.${extension}`)));
 
   if (extension) {
     return resolveFn(`${filePath}.${extension}`);
@@ -68,6 +71,29 @@ module.exports = {
   appNodeModules: resolveApp('node_modules'),
   swSrc: resolveModule(resolveApp, 'src/service-worker'),
   publicUrlOrPath,
+  appCom: resolveApp('src/common'),
+  comComp: resolveApp('src/common/component'),
+  comScss: resolveApp('src/common/scss'),
+  comStore: resolveApp('src/common/store'),
+  comStyled: resolveApp('src/common/styled'),
+  appCon: resolveApp('src/container'),
+  conComp: resolveApp('src/container/component'),
+  conScss: resolveApp('src/container/scss'),
+  conStore: resolveApp('src/container/store'),
+  conStyled: resolveApp('src/container/styled'),
+  conLib: resolveApp('src/container/lib'),
+  conRoute: resolveApp('src/container/route'),
+  conService: resolveApp('src/container/service'),
+  appCore: resolveApp('src/core'),
+  coreDB: resolveApp('src/core/db'),
+  coreI18n: resolveApp('src/core/i18n'),
+  coreTheme: resolveApp('src/core/theme'),
+  coreTool: resolveApp('src/core/tool'),
+  coreUtil: resolveApp('src/core/util'),
+  appDocs: resolveApp('src/docs'),
+  appStatic: resolveApp('src/static'),
+  staticImage: resolveApp('src/static/image'),
+  staticIcon: resolveApp('src/static/icon'),
 };
 
 module.exports.moduleFileExtensions = moduleFileExtensions;

@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "target": "es5",
     "lib": [
       "dom",
@@ -18,9 +19,36 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "experimentalDecorators": true,
+    "paths": {
+      "@/*": ["src/*"],
+      "@src/*": ["src/*"],
+      "@com/*": ["src/common/*"],
+      "@comComp/*": ["src/common/component/*"],
+      "@comScss/*": ["src/common/scss/*"],
+      "@comStore/*": ["src/common/store/*"],
+      "@comStyled/*": ["src/common/styled/*"],
+      "@con/*": ["src/container/*"],
+      "@comp/*": ["src/container/component/*"],
+      "@scss/*": ["src/container/scss/*"],
+      "@styled/*": ["src/container/styled/*"],
+      "@lib/*": ["src/container/lib/*"],
+      "@route/*": ["src/container/route/*"],
+      "@service/*": ["src/container/service/*"],
+      "@core/*": ["src/core/*"],
+      "@db/*": ["src/core/db/*"],
+      "@i18n/*": ["src/core/i18n/*"],
+      "@theme/*": ["src/core/theme/*"],
+      "@tool/*": ["src/core/tool/*"],
+      "@util/*": ["src/core/util/*"],
+      "@docs/*": ["src/docs/*"],
+      "@static/*": ["src/static/*"],
+      "@image/*": ["src/static/image/*"],
+      "@icon/*": ["src/static/icon/*"],
+    },
   },
   "include": [
-    "src"
-  ]
+    "src",
+  ],
 }
