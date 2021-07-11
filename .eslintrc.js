@@ -40,6 +40,16 @@ module.exports = {
     'import/no-named-as-default-member': 'off',
     'react/require-default-props': [0],
     'react/jsx-one-expression-per-line': ['off'],
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
+      },
+    ],
   },
   parser: '@typescript-eslint/parser',
   parserOptions: {
