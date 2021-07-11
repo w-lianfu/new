@@ -71,6 +71,7 @@ module.exports = {
   appNodeModules: resolveApp('node_modules'),
   swSrc: resolveModule(resolveApp, 'src/service-worker'),
   publicUrlOrPath,
+  appSub: resolveApp('sub'),
   appCom: resolveApp('src/common'),
   comComp: resolveApp('src/common/component'),
   comScss: resolveApp('src/common/scss'),
